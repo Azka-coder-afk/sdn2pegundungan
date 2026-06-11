@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SD Negeri 2 Pegundungan| Sekolah Dasar</title>
+  <meta name="description" content="SD Negeri 2 Pegundungan – Sekolah Dasar di dusun srandil, desa pegundungan, kec. pejawaran, banjarnegara Jawa Tengah. Membentuk generasi unggul, cerdas, kreatif, dan berakhlak mulia.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+  <style>
+    /* ══════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════ */
+    :root {
+      --primary:       #1a3a6e;
+      --primary-lt:    #2557a7;
+      --sky:           #0ea5e9;
+      --accent:        #f59e0b;
+      --accent-lt:     #fcd34d;
+      --dark:          #0c1830;
+      --text:          #1e293b;
+      --muted:         #64748b;
+      --bg-soft:       #f0f7ff;
+      --bg-section:    #f8fafc;
+      --shadow-sm:     0 4px 24px rgba(26,58,110,.08);
+      --shadow-md:     0 12px 40px rgba(26,58,110,.14);
+      --shadow-lg:     0 24px 60px rgba(26,58,110,.18);
+      --r:             20px;
+      --r-sm:          12px;
+      --nav-h:         70px;
+    }
+
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-h) + 12px);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+
+    /* ══════════════════════════════════════
+       SCROLL ANIMATIONS
+    ══════════════════════════════════════ */
+    @media (prefers-reduced-motion: no-preference) {
+      .aos {
+        opacity: 0;
+        transform: translateY(36px);
+        transition: opacity .65s cubic-bezier(.22,1,.36,1),
+                    transform .65s cubic-bezier(.22,1,.36,1);
+        will-change: opacity, transform;
+      }
+      .aos.d1 { transition-delay: .10s }
+      .aos.d2 { transition-delay: .20s }
+      .aos.d3 { transition-delay: .30s }
+      .aos.d4 { transition-delay: .40s }
+
+      .aos.visible {
+        opacity: 1;
+        transform: translateY(0);
+        will-change: auto;
+      }
+
+      .aos-scale {
+        opacity: 0;
+        transform: scale(.94) translateY(24px);
+        transition: opacity .55s cubic-bezier(.22,1,.36,1),
+                    transform .55s cubic-bezier(.22,1,.36,1);
+        will-change: opacity, transform;
+      }
+      .aos-scale.visible {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        will-change: auto;
+      }
+    }
+
+    /* ══════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(26,58,110,.07);
+      transition: box-shadow .3s ease;
+    }
+    nav.scrolled { box-shadow: var(--shadow-sm); }
+
+    .nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 clamp(16px, 3vw, 40px);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo { display:flex; align-items:center; gap:12px; }
+    .logo-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--sky));
+      border-radius: 11px;
+      display: flex; align-items:center; justify-content:center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text strong {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.95rem, 2vw, 1.15rem);
+      color: var(--primary);
+      display: block;
+    }
+    .logo-text small {
+      font-size: .7rem;
+      color: var(--muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+      font-size: .875rem;
+      padding: 7px 12px;
+      border-radius: 8px;
+      transition: background .18s, color .18s;
+      white-space: nowrap;
+      position: relative;
+    }
+    .nav-links a:hover { background: var(--bg-soft); color: var(--primary); }
+    .nav-links .nav-cta {
+      background: var(--primary);
+      color: #fff !important;
+      padding: 9px 20px;
+      border-radius: 50px;
+      margin-left: 6px;
+    }
+    .nav-links .nav-cta:hover {
+      background: var(--primary-lt) !important;
+      color: #fff !important;
+    }
+    .nav-links a.nav-active {
+      color: var(--primary) !important;
+      background: var(--bg-soft) !important;
+    }
+    .nav-links a.nav-active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px; height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px; height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 6px;
+      transition: background .2s;
+    }
+    .hamburger:hover { background: var(--bg-soft); }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--dark);
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease, width .3s ease;
+    }
+    .hamburger span:nth-child(1) { width: 24px; }
+    .hamburger span:nth-child(2) { width: 18px; }
+    .hamburger span:nth-child(3) { width: 24px; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); width: 24px; }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); width: 24px; }
+
+    .mobile-menu {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid rgba(26,58,110,.08);
+      box-shadow: 0 20px 40px rgba(0,0,0,.1);
+      padding: 16px;
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      z-index: 999;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: var(--text);
+      font-weight: 600;
+      font-size: .95rem;
+      padding: 12px 16px;
+      border-radius: 10px;
+      transition: background .15s, color .15s;
+    }
+    .mobile-menu a:hover { background: var(--bg-soft); color: var(--primary); }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(160deg,
+          rgba(12,24,48,.90) 0%,
+          rgba(26,58,110,.80) 55%,
+          rgba(14,165,233,.55) 100%),
+        url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1920&q=75&auto=format')
+          center/cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.5) 0%, transparent 70%);
+    }
+
+    .hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
+    .hero-orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(14,165,233,.2), transparent 65%);
+      top: -100px; right: -80px;
+      animation: orbFloat1 8s ease-in-out infinite;
+    }
+    .hero-orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(245,158,11,.14), transparent 65%);
+      bottom: 60px; left: -60px;
+      animation: orbFloat2 10s ease-in-out infinite;
+    }
+    @keyframes orbFloat1 { 0%,100% { transform:translate(0,0);} 50% { transform:translate(-30px,30px);} }
+    @keyframes orbFloat2 { 0%,100% { transform:translate(0,0);} 50% { transform:translate(20px,-20px);} }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      padding: 0 clamp(16px, 5vw, 48px);
+      padding-bottom: 120px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+      animation: heroFade .8s .22s ease both;
+      text-shadow: 0 4px 32px rgba(0,0,0,.3);
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent), var(--accent-lt));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.8vw, 1.3rem);
+      color: rgba(255,255,255,.82);
+      max-width: 640px;
+      margin: 20px auto 40px;
+      animation: heroFade .8s .34s ease both;
+    }
+
+    .hero-stats {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      z-index: 2;
+      background: linear-gradient(to top, rgba(0,0,0,.55), transparent);
+      padding: clamp(20px,4vw,36px) clamp(16px,5vw,48px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(24px, 6vw, 80px);
+      animation: heroFade .8s .6s ease both;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--accent-lt);
+      line-height: 1;
+      text-shadow: 0 0 30px rgba(252,211,77,.35);
+    }
+    .stat-label {
+      font-size: clamp(.7rem, 1.6vw, .85rem);
+      color: rgba(255,255,255,.75);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    @keyframes heroFade {
+      from { opacity: 0; transform: translateY(-16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .scroll-cue {
+      position: absolute;
+      bottom: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.5);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      animation: scrollCueFade 1s 1.2s ease both;
+    }
+    .scroll-cue-mouse {
+      width: 22px; height: 36px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-radius: 11px;
+      position: relative;
+    }
+    .scroll-cue-mouse::after {
+      content: '';
+      position: absolute;
+      top: 5px; left: 50%;
+      transform: translateX(-50%);
+      width: 4px; height: 7px;
+      background: rgba(255,255,255,.6);
+      border-radius: 2px;
+      animation: scrollDot 1.6s ease infinite;
+    }
+    @keyframes scrollDot { 0%,100% { top:5px; opacity:1 } 60% { top:18px; opacity:.2 } }
+    @keyframes scrollCueFade { from { opacity:0 } to { opacity:1 } }
+
+    /* ══════════════════════════════════════
+       SHARED SECTION STYLES
+    ══════════════════════════════════════ */
+    section { padding: clamp(64px, 10vw, 120px) 0; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); }
+    .bg-soft    { background: var(--bg-section); }
+    .bg-primary { background: var(--primary); }
+
+    .sec-eyebrow {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--bg-soft), rgba(14,165,233,.12));
+      border: 1px solid rgba(14,165,233,.18);
+      color: var(--primary-lt);
+      padding: 5px 16px;
+      border-radius: 50px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.9rem);
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: clamp(36px, 5vw, 64px);
+    }
+    .sec-title.center { text-align: center; }
+    .sec-title span { color: var(--sky); }
+
+    /* ══════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(36px, 6vw, 80px);
+      align-items: center;
+    }
+    .about-img-wrap { position: relative; border-radius: var(--r); overflow: visible; }
+    .about-img-wrap img {
+      width: 100%;
+      height: clamp(280px, 40vw, 480px);
+      object-fit: cover;
+      border-radius: var(--r);
+      box-shadow: var(--shadow-lg);
+    }
+    .about-float {
+      position: absolute;
+      bottom: -20px; right: -20px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 18px 24px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .about-float .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 800; color: var(--primary); line-height: 1; }
+    .about-float p { font-size: .78rem; color: var(--muted); font-weight: 600; margin-top: 4px; }
+
+    .about-lead { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--muted); line-height: 1.9; margin-bottom: 32px; }
+    .vm-stack { display: flex; flex-direction: column; gap: 16px; }
+    .vm-card {
+      border-left: 4px solid;
+      border-image: linear-gradient(to bottom, var(--primary), var(--sky)) 1;
+      border-radius: 0 var(--r-sm) var(--r-sm) 0;
+      background: linear-gradient(135deg, var(--bg-soft), #fff);
+      padding: 18px 22px;
+    }
+    .vm-card h4 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--primary); margin-bottom: 6px; }
+    .vm-card p { font-size: .92rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       PROGRAM CARDS
+    ══════════════════════════════════════ */
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px; }
+    .prog-card {
+      background: linear-gradient(145deg, #fff 0%, var(--bg-soft) 100%);
+      border-radius: var(--r);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,58,110,.06);
+      position: relative;
+      overflow: hidden;
+      transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s cubic-bezier(.22,1,.36,1), background .3s ease;
+    }
+    .prog-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--sky));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+    }
+    .prog-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); background: linear-gradient(145deg, #fff 0%, rgba(14,165,233,.06) 100%); }
+    .prog-card:hover::after { transform: scaleX(1); }
+    .prog-card .card-icon { width: 58px; height: 58px; background: linear-gradient(135deg, var(--bg-soft), rgba(14,165,233,.1)); border-radius: 14px; display: flex; align-items:center; justify-content:center; font-size: 1.8rem; margin-bottom: 22px; }
+    .prog-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; }
+    .prog-card p { font-size: .9rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       FACILITIES
+    ══════════════════════════════════════ */
+    .fac-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; }
+    .fac-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: linear-gradient(135deg, #fff 0%, var(--bg-soft) 100%);
+      border-radius: var(--r-sm);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,58,110,.06);
+      border-left: 3px solid transparent;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .fac-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-left-color: var(--sky); }
+    .fac-ico { width: 52px; height: 52px; background: linear-gradient(135deg, var(--bg-soft), rgba(14,165,233,.12)); border-radius: 12px; display: flex; align-items:center; justify-content:center; font-size: 1.5rem; flex-shrink: 0; }
+    .fac-card h3 { font-weight: 700; font-size: .97rem; color: var(--text); margin-bottom: 3px; }
+    .fac-card p  { font-size: .82rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       EXTRACURRICULAR
+    ══════════════════════════════════════ */
+    .ekstra-wrap { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+    .ekstra-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #fff 0%, var(--bg-soft) 100%);
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid rgba(26,58,110,.12);
+      border-radius: 50px;
+      padding: 13px 24px;
+      font-weight: 600;
+      font-size: clamp(.85rem, 1.8vw, .95rem);
+      color: var(--text);
+      cursor: default;
+      transition: background .2s, border-color .2s, color .2s, transform .2s;
+    }
+    .ekstra-chip:hover { background: var(--primary); color: #fff; border-color: var(--primary); transform: translateY(-3px); }
+    .ekstra-chip span { font-size: 1.25rem; }
+
+    /* ══════════════════════════════════════
+       GALLERY
+    ══════════════════════════════════════ */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 18px; }
+    .gallery-item { position: relative; overflow: hidden; border-radius: var(--r); aspect-ratio: 4 / 3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(12,24,48,.72), transparent 55%);
+      opacity: 0;
+      transition: opacity .3s ease;
+      display: flex; align-items: flex-end;
+      padding: 18px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: #fff; font-weight: 600; font-size: .85rem; }
+
+    /* ══════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════ */
+    .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px; }
+    .testi-card {
+      background: linear-gradient(145deg, #fff 0%, var(--bg-soft) 100%);
+      border-radius: var(--r);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,58,110,.06);
+      position: relative;
+      transition: transform .28s cubic-bezier(.22,1,.36,1), box-shadow .28s cubic-bezier(.22,1,.36,1);
+    }
+    .testi-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .testi-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--primary); opacity: .07; position: absolute; top: 0; left: 20px; line-height: 1; }
+    .testi-stars { display:flex; gap:3px; margin-bottom: 14px; }
+    .testi-stars i { color: var(--accent); font-size: .9rem; }
+    .testi-text { font-style: italic; color: var(--text); font-size: .97rem; line-height: 1.8; margin-bottom: 24px; }
+    .testi-author { display:flex; align-items:center; gap:14px; }
+    .testi-avatar { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--sky)); display:flex; align-items:center; justify-content:center; color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+    .testi-info h4 { font-weight: 700; font-size: .92rem; color: var(--text); }
+    .testi-info p  { font-size: .78rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer {
+      background: linear-gradient(170deg, var(--dark) 0%, #091525 100%);
+      color: rgba(255,255,255,.7);
+      padding: clamp(60px, 8vw, 100px) 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,.04), transparent 70%);
+      pointer-events: none;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: clamp(32px, 5vw, 64px); margin-bottom: 60px; }
+    .footer-brand h2 { font-family: 'Playfair Display', serif; font-size: 1.55rem; color: #fff; margin-bottom: 12px; }
+    .footer-brand p { font-size: .9rem; line-height: 1.85; margin-bottom: 24px; }
+    .socials { display:flex; gap:10px; }
+    .soc-btn { width: 38px; height: 38px; border-radius: 9px; background: rgba(255,255,255,.08); display:flex; align-items:center; justify-content:center; color: rgba(255,255,255,.65); font-size: .95rem; transition: background .2s, color .2s, transform .2s; }
+    .soc-btn:hover { background: var(--accent); color: var(--dark); transform: translateY(-2px); }
+    .footer-col h4 { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .09em; color: #fff; margin-bottom: 20px; }
+    .footer-links { list-style: none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a { color: rgba(255,255,255,.6); font-size: .88rem; transition: color .18s, padding-left .18s; }
+    .footer-links a:hover { color: var(--accent-lt); padding-left: 5px; }
+    .contact-row { display: flex; align-items: flex-start; gap: 10px; font-size: .88rem; margin-bottom: 12px; }
+    .contact-row i { color: var(--accent); margin-top: 3px; width:16px; flex-shrink:0; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: .82rem; }
+    .footer-bottom a { color: rgba(255,255,255,.5); }
+    .footer-bottom a:hover { color: var(--accent-lt); }
+
+    /* ══════════════════════════════════════
+       FIXED UI: PROGRESS, BACK-TO-TOP, DOTS
+    ══════════════════════════════════════ */
+    #nav-progress {
+      position: fixed;
+      top: 0; left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--sky), var(--accent));
+      box-shadow: 0 0 8px rgba(14,165,233,.5);
+      z-index: 2000;
+      transition: width .08s linear;
+      pointer-events: none;
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 990;
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-lt));
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      box-shadow: 0 6px 24px rgba(26,58,110,.4);
+      opacity: 0;
+      transform: translateY(14px) scale(.9);
+      transition: opacity .3s ease, transform .3s ease, background .2s ease;
+      pointer-events: none;
+    }
+    #back-to-top.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; animation: backTopPulse 3s ease 1s infinite; }
+    #back-to-top:hover { background: var(--primary-lt); transform: translateY(-3px) scale(1); }
+    @keyframes backTopPulse { 0%,100% { box-shadow: 0 6px 24px rgba(26,58,110,.4), 0 0 0 0 rgba(37,87,167,.35); } 50% { box-shadow: 0 6px 24px rgba(26,58,110,.4), 0 0 0 10px rgba(37,87,167,0); } }
+
+    #sec-nav {
+      position: fixed;
+      right: 20px; top: 50%;
+      transform: translateY(-50%);
+      z-index: 980;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 6px;
+      background: rgba(255,255,255,.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 50px;
+      border: 1px solid rgba(26,58,110,.08);
+      box-shadow: var(--shadow-sm);
+    }
+    .sec-dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: rgba(26,58,110,.2); cursor: pointer; border: none; padding: 0; transition: background .25s ease, transform .25s ease, height .25s ease, border-radius .25s ease; flex-shrink: 0; }
+    .sec-dot:hover { background: var(--primary); transform: scale(1.3); }
+    .sec-dot.active { background: var(--primary); height: 22px; border-radius: 4px; transform: none; }
+    .sec-dot::after { content: attr(data-label); position: absolute; right: calc(100% + 12px); top: 50%; transform: translateY(-50%); background: var(--dark); color: #fff; padding: 5px 11px; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: .72rem; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity .18s ease; }
+    .sec-dot::before { content: ''; position: absolute; right: calc(100% + 6px); top: 50%; transform: translateY(-50%); border: 5px solid transparent; border-left-color: var(--dark); opacity: 0; pointer-events: none; transition: opacity .18s ease; }
+    .sec-dot:hover::after, .sec-dot:hover::before { opacity: 1; }
+
+    /* ══════════════════════════════════════
+       TICKER BAR
+    ══════════════════════════════════════ */
+    #ticker-bar {
+      position: relative;
+      z-index: 1100;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-lt) 50%, var(--sky) 100%);
+      color: #fff;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+    #ticker-bar .ticker-label {
+      flex-shrink: 0;
+      background: rgba(0,0,0,.18);
+      height: 100%;
+      padding: 0 18px;
+      display: flex; align-items: center; gap: 6px;
+      white-space: nowrap;
+      border-right: 1px solid rgba(255,255,255,.18);
+      text-transform: uppercase;
+    }
+    #ticker-bar .ticker-label::before {
+      content: '';
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: var(--accent-lt);
+      border-radius: 50%;
+      animation: ticker-blink 1.2s ease infinite;
+    }
+    @keyframes ticker-blink { 0%,100% { opacity:1 } 50% { opacity:.25 } }
+    .ticker-track-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+    .ticker-track { display: flex; gap: 0; animation: ticker-scroll 28s linear infinite; white-space: nowrap; }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item { padding: 0 36px; opacity: .9; position: relative; }
+    .ticker-item + .ticker-item::before { content: '◆'; position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: .45rem; color: var(--accent-lt); }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    #ticker-bar .ticker-close { flex-shrink: 0; padding: 0 14px; height: 100%; background: none; border: none; border-left: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.6); cursor: pointer; font-size: .8rem; transition: background .15s, color .15s; }
+    #ticker-bar .ticker-close:hover { background: rgba(0,0,0,.12); color: #fff; }
+
+    /* ══════════════════════════════════════
+       PASSWORD MODAL
+    ══════════════════════════════════════ */
+    #pwd-overlay {
+      position: fixed; inset: 0;
+      z-index: 2100;
+      background: rgba(5,10,20,.82);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s ease;
+    }
+    #pwd-overlay.show { opacity: 1; pointer-events: auto; }
+    #pwd-box {
+      background: #0d1117;
+      border: 1px solid rgba(100,220,140,.2);
+      border-radius: 16px;
+      padding: 40px;
+      width: min(420px, 90vw);
+      box-shadow: 0 0 60px rgba(100,220,140,.1), 0 24px 80px rgba(0,0,0,.6);
+      transform: translateY(18px) scale(.97);
+      transition: transform .3s cubic-bezier(.22,1,.36,1);
+      text-align: center;
+    }
+    #pwd-overlay.show #pwd-box { transform: translateY(0) scale(1); }
+    #pwd-box .lock-icon { width: 64px; height: 64px; margin: 0 auto 20px; background: rgba(100,220,140,.08); border: 1px solid rgba(100,220,140,.2); border-radius: 50%; display: flex; align-items:center; justify-content:center; font-size: 1.5rem; color: rgba(100,220,140,.9); animation: pulse-lock 2s ease infinite; }
+    @keyframes pulse-lock { 0%,100% { box-shadow: 0 0 0 0 rgba(100,220,140,.25); } 50% { box-shadow: 0 0 0 10px rgba(100,220,140,0); } }
+    #pwd-box h3 { font-family: 'Playfair Display', serif; color: rgba(100,220,140,.95); font-size: 1.25rem; margin-bottom: 6px; }
+    #pwd-box p { color: rgba(255,255,255,.4); font-size: .82rem; margin-bottom: 28px; font-family: 'Plus Jakarta Sans', sans-serif; }
+    #pwd-input { width: 100%; background: rgba(255,255,255,.04); border: 1px solid rgba(100,220,140,.2); border-radius: 10px; padding: 13px 18px; color: rgba(100,220,140,.9); font-family: 'Courier New', monospace; font-size: 1rem; letter-spacing: .12em; outline: none; transition: border-color .2s, box-shadow .2s; text-align: center; }
+    #pwd-input::placeholder { color: rgba(100,220,140,.25); letter-spacing: .04em; }
+    #pwd-input:focus { border-color: rgba(100,220,140,.55); box-shadow: 0 0 0 3px rgba(100,220,140,.08); }
+    #pwd-error { color: #f87171; font-size: .78rem; margin-top: 10px; min-height: 18px; font-family: 'Courier New', monospace; transition: opacity .2s; opacity: 0; }
+    #pwd-error.show { opacity: 1; }
+    .pwd-btns { display: flex; gap: 10px; margin-top: 22px; }
+    .pwd-btn-cancel { flex: 1; padding: 12px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 9px; color: rgba(255,255,255,.5); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: .875rem; cursor: pointer; transition: all .2s; }
+    .pwd-btn-cancel:hover { background: rgba(255,255,255,.08); color: rgba(255,255,255,.8); }
+    .pwd-btn-enter { flex: 2; padding: 12px; background: rgba(100,220,140,.12); border: 1px solid rgba(100,220,140,.3); border-radius: 9px; color: rgba(100,220,140,.95); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .875rem; cursor: pointer; transition: all .2s; }
+    .pwd-btn-enter:hover { background: rgba(100,220,140,.22); border-color: rgba(100,220,140,.55); box-shadow: 0 0 14px rgba(100,220,140,.2); }
+    #pwd-box .shake { animation: shake .4s ease; }
+    @keyframes shake { 0%,100% { transform: translateX(0); } 20% { transform: translateX(-8px); } 40% { transform: translateX(8px); } 60% { transform: translateX(-6px); } 80% { transform: translateX(6px); } }
+
+    /* ══════════════════════════════════════
+       ADMIN PANEL
+    ══════════════════════════════════════ */
+    #admin-panel {
+      position: fixed; inset: 0;
+      z-index: 2200;
+      background: #060d14;
+      display: flex; flex-direction: column;
+      opacity: 0; pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity .35s ease, transform .35s cubic-bezier(.22,1,.36,1);
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+    }
+    #admin-panel.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    #admin-panel::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(0,0,0,.06) 2px, rgba(0,0,0,.06) 4px); pointer-events: none; z-index: 1; }
+    #admin-panel::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(100,220,140,.03) 0%, rgba(0,0,0,.35) 100%); pointer-events: none; z-index: 1; }
+
+    .admin-topbar { position: relative; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1px solid rgba(100,220,140,.12); background: rgba(100,220,140,.03); }
+    .admin-topbar-left { display: flex; align-items: center; gap: 8px; }
+    .tbar-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .tbar-dot.red    { background: #ff5f57; }
+    .tbar-dot.yellow { background: #febc2e; }
+    .tbar-dot.green  { background: #28c840; }
+    .admin-topbar-title { color: rgba(100,220,140,.5); font-size: .75rem; letter-spacing: .12em; margin-left: 12px; }
+    .admin-close-btn { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.5); border-radius: 8px; padding: 7px 16px; font-family: 'Courier New', monospace; font-size: .78rem; cursor: pointer; letter-spacing: .06em; transition: all .2s; }
+    .admin-close-btn:hover { background: rgba(248,113,113,.12); border-color: rgba(248,113,113,.3); color: #f87171; }
+
+    .admin-ascii { position: relative; z-index: 10; text-align: center; padding: 28px 20px 12px; border-bottom: 1px solid rgba(100,220,140,.08); }
+    .admin-ascii pre { display: inline-block; font-size: clamp(.28rem, 1vw, .52rem); line-height: 1.15; color: rgba(100,220,140,.85); text-shadow: 0 0 10px rgba(100,220,140,.4); white-space: pre; overflow: visible; font-family: 'Courier New', monospace; }
+    .admin-ascii .version-tag { display: inline-block; margin-top: 8px; background: rgba(100,220,140,.1); border: 1px solid rgba(100,220,140,.2); color: rgba(100,220,140,.7); padding: 3px 14px; border-radius: 50px; font-size: .68rem; letter-spacing: .12em; }
+
+    .admin-body { position: relative; z-index: 10; flex: 1; overflow-y: auto; padding: 24px 28px 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 18px; align-content: start; }
+    .admin-body::-webkit-scrollbar { width: 4px; }
+    .admin-body::-webkit-scrollbar-track { background: transparent; }
+    .admin-body::-webkit-scrollbar-thumb { background: rgba(100,220,140,.2); border-radius: 2px; }
+
+    .admin-widget { background: rgba(100,220,140,.035); border: 1px solid rgba(100,220,140,.13); border-radius: 12px; padding: 22px; transition: border-color .2s, box-shadow .2s; }
+    .admin-widget:hover { border-color: rgba(100,220,140,.3); box-shadow: 0 0 20px rgba(100,220,140,.06); }
+    .admin-widget h4 { color: rgba(100,220,140,.9); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(100,220,140,.1); padding-bottom: 10px; }
+    .admin-widget h4 i { opacity: .7; }
+
+    .admin-stats-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .admin-stat-box { background: rgba(100,220,140,.05); border: 1px solid rgba(100,220,140,.1); border-radius: 8px; padding: 14px; text-align: center; }
+    .admin-stat-num { font-size: 1.7rem; font-weight: bold; color: rgba(100,220,140,.95); line-height: 1; text-shadow: 0 0 16px rgba(100,220,140,.4); }
+    .admin-stat-lbl { font-size: .62rem; color: rgba(100,220,140,.45); letter-spacing: .1em; margin-top: 5px; text-transform: uppercase; }
+
+    .admin-field { width: 100%; background: rgba(255,255,255,.03); border: 1px solid rgba(100,220,140,.15); border-radius: 8px; padding: 10px 14px; color: rgba(200,255,220,.8); font-family: 'Courier New', monospace; font-size: .82rem; outline: none; resize: none; transition: border-color .2s; margin-bottom: 10px; }
+    .admin-field::placeholder { color: rgba(100,220,140,.2); }
+    .admin-field:focus { border-color: rgba(100,220,140,.4); }
+    .admin-btn { background: rgba(100,220,140,.12); border: 1px solid rgba(100,220,140,.3); color: rgba(100,220,140,.9); border-radius: 8px; padding: 9px 20px; font-family: 'Courier New', monospace; font-size: .8rem; cursor: pointer; letter-spacing: .06em; transition: all .2s; }
+    .admin-btn:hover { background: rgba(100,220,140,.22); box-shadow: 0 0 12px rgba(100,220,140,.2); }
+    .admin-btn.danger { background: rgba(248,113,113,.08); border-color: rgba(248,113,113,.25); color: #f87171; }
+    .admin-btn.danger:hover { background: rgba(248,113,113,.18); }
+
+    #ann-list { display: flex; flex-direction: column; gap: 8px; }
+    .ann-item { background: rgba(100,220,140,.04); border: 1px solid rgba(100,220,140,.1); border-radius: 7px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+    .ann-item-text { color: rgba(200,255,220,.7); font-size: .8rem; line-height: 1.5; flex: 1; }
+    .ann-item-del { background: none; border: none; color: rgba(248,113,113,.5); cursor: pointer; font-size: .75rem; padding: 2px 6px; border-radius: 4px; transition: all .15s; flex-shrink: 0; }
+    .ann-item-del:hover { color: #f87171; background: rgba(248,113,113,.1); }
+    .ann-empty { color: rgba(100,220,140,.25); font-size: .78rem; text-align: center; padding: 12px; }
+
+    .admin-log { font-size: .73rem; color: rgba(100,220,140,.5); max-height: 120px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; }
+    .log-line { display: flex; gap: 8px; }
+    .log-time { color: rgba(100,220,140,.3); flex-shrink: 0; }
+    .log-line.ok   .log-msg { color: rgba(100,220,140,.65); }
+    .log-line.warn .log-msg { color: rgba(254,188,46,.65); }
+    .log-line.err  .log-msg { color: rgba(248,113,113,.65); }
+
+    .admin-session { display: flex; align-items: center; justify-content: space-between; font-size: .72rem; color: rgba(100,220,140,.4); letter-spacing: .06em; }
+    .session-timer { color: rgba(100,220,140,.8); font-weight: bold; font-size: .82rem; }
+
+    .cursor { display: inline-block; width: 7px; height: .9em; background: rgba(100,220,140,.8); vertical-align: middle; margin-left: 2px; animation: blink .9s step-start infinite; }
+    @keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0 } }
+
+    /* ══════════════════════════════════════
+       COMMAND TERMINAL WIDGET
+       ► Ganti tampilan/prompt di sini tanpa
+         mengubah logic di bagian JS lainnya
+    ══════════════════════════════════════ */
+    .cmd-terminal {
+      background: rgba(0, 105, 2, 0.35);
+      border: 1px solid rgba(100,220,140,.15);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 12px;
+      max-height: 130px;
+      overflow-y: auto;
+      font-size: .75rem;
+      color: rgba(100,220,140,.6);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .cmd-terminal::-webkit-scrollbar { width: 3px; }
+    .cmd-terminal::-webkit-scrollbar-thumb { background: rgba(100,220,140,.15); border-radius: 2px; }
+    .cmd-line { display: flex; gap: 6px; }
+    .cmd-prompt { color: rgba(100,220,140,.4); flex-shrink: 0; }
+    .cmd-output { color: rgba(200,255,220,.55); }
+    .cmd-output.err { color: rgba(248,113,113,.7); }
+    .cmd-output.ok  { color: rgba(100,220,140,.8); }
+    .cmd-output.info { color: rgba(96,165,250,.7); }
+
+    .cmd-input-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,0,0,.2);
+      border: 1px solid rgba(100,220,140,.2);
+      border-radius: 8px;
+      padding: 9px 14px;
+    }
+    .cmd-input-prompt { color: rgba(100,220,140,.5); font-size: .8rem; flex-shrink: 0; user-select: none; }
+    .cmd-input-field {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      color: rgba(200,255,220,.9);
+      font-family: 'Courier New', monospace;
+      font-size: .8rem;
+      caret-color: rgba(100,220,140,.9);
+    }
+    .cmd-input-field::placeholder { color: rgba(100,220,140,.2); }
+
+    /* ══════════════════════════════════════
+       404 ERROR OVERLAY
+       ► Ubah teks/ikon/warna di sini saja,
+         tanpa menyentuh kode lain sama sekali
+    ══════════════════════════════════════ */
+    #error-404-overlay {
+      position: fixed; inset: 0;
+      z-index: 3000;
+      background: #030912;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .4s ease;
+      font-family: 'Courier New', monospace;
+    }
+    #error-404-overlay.show { opacity: 1; pointer-events: auto; }
+
+    /* Grid scanline effect pada 404 */
+    #error-404-overlay::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        repeating-linear-gradient(to bottom, transparent, transparent 3px, rgba(0,255,80,.015) 3px, rgba(0,255,80,.015) 4px),
+        radial-gradient(ellipse at 50% 50%, rgba(14,165,233,.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .err-glitch-wrap {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 32px;
+    }
+
+    /* ► Angka 404 — ganti font-size atau warna di sini */
+    .err-404-num {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(6rem, 22vw, 14rem);
+  font-weight: 900;
+  line-height: 1;
+  position: relative;
+
+  color: rgba(255,255,255,.08);
+  -webkit-text-stroke: 2px rgba(255,255,255,.35);
+
+  text-shadow:
+    0 0 20px rgba(255,255,255,.15),
+    0 0 40px rgba(255,255,255,.08);
+
+  backdrop-filter: blur(20px);
+  animation: err404Float 6s ease-in-out infinite;
+}
+    /* Glitch pseudo-layers */
+    .err-404-num::before,
+    .err-404-num::after {
+      content: '404';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+    .err-404-num::before {
+      color: rgba(14,165,233,.35);
+      animation: glitchA 4s ease-in-out infinite;
+      clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+    }
+    .err-404-num::after {
+      color: rgba(248,113,113,.25);
+      animation: glitchB 4s ease-in-out infinite;
+      clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+    }
+    @keyframes err404Glitch {
+      0%,90%,100% { transform: translate(0,0); }
+      91%          { transform: translate(-3px, 1px); }
+      93%          { transform: translate(3px, -1px); }
+      95%          { transform: translate(-2px, 2px); }
+      97%          { transform: translate(0,0); }
+    }
+    @keyframes glitchA {
+      0%,90%,100% { transform: translate(0,0); opacity: 0; }
+      91%          { transform: translate(-6px, 0); opacity: 1; }
+      93%          { transform: translate(6px, 0); opacity: 1; }
+      95%          { opacity: 0; }
+    }
+    @keyframes glitchB {
+      0%,90%,100% { transform: translate(0,0); opacity: 0; }
+      92%          { transform: translate(5px, 0); opacity: 1; }
+      94%          { transform: translate(-5px, 0); opacity: 1; }
+      96%          { opacity: 0; }
+    }
+
+    /* ► Label & deskripsi 404 — ganti teks di HTML, ganti style di sini */
+    .err-label {
+      color: rgba(19, 222, 39, 0.7);
+      font-size: clamp(.7rem, 2vw, .85rem);
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    .err-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      color: rgba(255,255,255,.9);
+      margin-bottom: 12px;
+      position: relative; z-index: 1;
+    }
+    .err-desc {
+      color: rgba(255,255,255,.35);
+      font-size: .82rem;
+      max-width: 440px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+      position: relative; z-index: 1;
+    }
+    .err-code-line {
+      font-family: 'Courier New', monospace;
+      font-size: .72rem;
+      color: rgba(100,220,140,.3);
+      letter-spacing: .06em;
+      margin-bottom: 32px;
+      position: relative; z-index: 1;
+    }
+    .err-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      position: relative; z-index: 1;
+    }
+
+    /* ► Tombol di 404 — ganti warna/radius di sini */
+    .err-btn-home {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(100,220,140,.12);
+      border: 1px solid rgba(100,220,140,.35);
+      color: rgba(100,220,140,.9);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: all .22s ease;
+    }
+    .err-btn-home:hover { background: rgba(100,220,140,.22); box-shadow: 0 0 20px rgba(100,220,140,.2); }
+
+    .err-btn-back {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.45);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-family: 'Courier New', monospace;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      cursor: pointer;
+      transition: all .22s ease;
+    }
+    .err-btn-back:hover { background: rgba(255,255,255,.08); color: rgba(255,255,255,.7); }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .about-grid { grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
+      .about-float { right: 16px; bottom: -16px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .cards-grid, .fac-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .hero-content { padding-bottom: 140px; }
+      .hero-stats .stat-item:nth-child(n+4) { display: none; }
+      .cards-grid, .fac-grid, .gallery-grid { grid-template-columns: 1fr; }
+      .about-float { display: none; }
+      .ekstra-chip { font-size: .82rem; padding: 10px 18px; }
+    }
+    @media (max-width: 360px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero-stats .stat-item:nth-child(n+3) { display: none; }
+    }
+    @media (max-width: 900px) {
+      #sec-nav { display: none; }
+      #back-to-top { bottom: 20px; right: 20px; width: 42px; height: 42px; }
+    }
+  </style>
+  <!-- ══ FIREBASE SDK (real-time 404 broadcast) ══ -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.0/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<!-- ══ TICKER BAR ══════════════════════════════════════════ -->
+<div id="ticker-bar">
+  <div class="ticker-label">📢 Info</div>
+  <div class="ticker-track-wrap">
+    <div class="ticker-track" id="ticker-track">
+      <span class="ticker-item">uji coba 1</span>
+      <span class="ticker-item">woi admin ini bugnya difix😡😡😡😡😡😡!!!</span>
+      <span class="ticker-item">mana foto sekolah yang kau janjikan itu hah??!!!</span>
+      <span class="ticker-item">Hidup jack doey</span>
+      <span class="ticker-item">well,well,well bug lagi</span>
+      <!-- duplicate for seamless loop -->
+      <span class="ticker-item">uji coba 1</span>
+      <span class="ticker-item">woi admin ini bugnya difix!!!</span>
+      <span class="ticker-item">mana foto sekolah yang kau janjikan itu hah??!!!</span>
+      <span class="ticker-item">Hidup jack doey</span>
+      <span class="ticker-item">well,well,well bug lagi</span>
+    </div>
+  </div>
+  <button class="ticker-close" id="ticker-close" aria-label="Tutup">✕</button>
+</div>
+
+<!-- ══ FIXED UI ══ -->
+<div id="nav-progress" aria-hidden="true"></div>
+<button id="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></button>
+<nav id="sec-nav" aria-label="Navigasi seksi">
+  <button class="sec-dot active" data-target="#beranda"   data-label="Beranda"></button>
+  <button class="sec-dot"        data-target="#tentang"   data-label="Tentang"></button>
+  <button class="sec-dot"        data-target="#program"   data-label="Program"></button>
+  <button class="sec-dot"        data-target="#fasilitas" data-label="Fasilitas"></button>
+  <button class="sec-dot"        data-target="#ekstra"    data-label="Ekstrakurikuler"></button>
+  <button class="sec-dot"        data-target="#galeri"    data-label="Galeri"></button>
+  <button class="sec-dot"        data-target="#kontak"    data-label="Kontak"></button>
+</nav>
+
+<!-- ══ NAVIGATION ══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <img
+        src="LOGO SD.png"
+        alt="Logo SD Negeri 2 Pegundungan"
+        class="logo-icon"
+        onerror="this.onerror=null;this.style.display='none';document.getElementById('logo-fallback').style.display='flex';"
+      >
+      <div id="logo-fallback" class="logo-icon" style="display:none; background:linear-gradient(135deg,#1a3a6e,#0ea5e9);">🏫</div>
+      <div class="logo-text">
+        <strong>SD Negeri 2 Pegundungan</strong>
+        <small>Sekolah Dasar Unggulan</small>
+      </div>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#beranda">Beranda</a></li>
+      <li><a href="#tentang">Tentang</a></li>
+      <li><a href="#program">Program</a></li>
+      <li><a href="#fasilitas">Fasilitas</a></li>
+      <li><a href="#ekstra">Ekstrakurikuler</a></li>
+      <li><a href="#galeri">Galeri</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu" role="navigation">
+  <a href="#beranda">Beranda</a>
+  <a href="#tentang">Tentang</a>
+  <a href="#program">Program</a>
+  <a href="#fasilitas">Fasilitas</a>
+  <a href="#ekstra">Ekstrakurikuler</a>
+  <a href="#galeri">Galeri</a>
+  <a href="#kontak">Kontak</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="beranda">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
+  <div class="hero-content">
+    <h1>SD <em>Negeri 2</em><br>Pegundungan</h1>
+    <p class="hero-sub">Berkarakter kuat, Berprestasi Hebat, Dan mandiri sejak dini,</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <div class="scroll-cue-mouse"></div>
+    <span>Scroll</span>
+  </div>
+  <div class="hero-stats" aria-label="Statistik sekolah">
+    <div class="stat-item"><div class="stat-num">42</div><div class="stat-label">Tahun Berdiri</div></div>
+    <div class="stat-item"><div class="stat-num">64</div><div class="stat-label">Siswa Aktif</div></div>
+    <div class="stat-item"><div class="stat-num">9</div><div class="stat-label">Tenaga Didik dan Tenaga Pendidik</div></div>
+    <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Tingkat Kelulusan</div></div>
+  </div>
+</section>
+
+<!-- ══ TENTANG ══ -->
+<section id="tentang">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap aos">
+        <img src="FOTO KS.png" alt="foto pak ks yang ganteng" loading="lazy"
+          onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1000&q=75&auto=format';">
+        <div class="about-float"><div class="num">B</div><p>Akreditasi Sekolah</p></div>
+      </div>
+      <div class="aos d1">
+        <span class="sec-eyebrow">Tentang Kami</span>
+        <h2 class="sec-title">Selamat datang Di<span> Website Resmi</span><br>SDN 2 Pegundungan</h2>
+        <p class="about-lead">SD Negeri 2 Pegundungan berkomitmen untuk mewujudkan sekolah yang berani: Berkarakter, Berprestasi, dan Mandiri dalam lingkungan yang religius, aman, dan menyenangkan.</p>
+        <div class="vm-stack">
+          <div class="vm-card">
+            <h4><i class="fas fa-eye" style="margin-right:6px"></i>Visi</h4>
+            <p>Menjadi sekolah dasar unggulan yang melahirkan generasi yang Berkarakter kuat, Berprestasi Hebat, dan Mandiri sejak Dini.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROGRAM ══ -->
+<section id="program" class="bg-soft">
+  <div class="container">
+    <div class="aos" style="text-align:center">
+      <span class="sec-eyebrow">Program Kami</span>
+      <h2 class="sec-title center">Program <span>Unggulan</span></h2>
+    </div>
+    <div class="cards-grid">
+      <div class="prog-card aos-scale"><div class="card-icon">🫢</div><h3>Kurikulum Merdeka</h3><p>Pembelajaran berbasis proyek yang menyenangkan, inovatif, dan berpusat pada potensi siswa.</p></div>
+      <div class="prog-card aos-scale d1"><div class="card-icon">🥀</div><h3>Seni & Kreativitas</h3><p>Eksplorasi bakat melalui musik, tari tradisional, melukis, dan berbagai kerajinan tangan.</p></div>
+      <div class="prog-card aos-scale d2"><div class="card-icon">🏅</div><h3>Olahraga & Karakter</h3><p>Membangun tubuh sehat dan mental tangguh melalui futsal, senam, serta pembinaan akhlak mulia.</p></div>
+      <div class="prog-card aos-scale d3"><div class="card-icon">🧪</div><h3>Sains & Teknologi</h3><p>Mengenalkan ilmu pengetahuan dan teknologi sejak dini dengan metode eksperimen yang menarik.</p></div>
+      <div class="prog-card aos-scale d1"><div class="card-icon">🌍</div><h3>Pendidikan Karakter</h3><p>Menanamkan nilai-nilai kebaikan, toleransi, dan kepemimpinan sejak usia dini.</p></div>
+      <div class="prog-card aos-scale d2"><div class="card-icon">💬</div><h3>Bahasa & Literasi</h3><p>Menumbuhkan kecintaan membaca dan kemampuan komunikasi dalam Bahasa Indonesia dan Inggris.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FASILITAS ══ -->
+<section id="fasilitas">
+  <div class="container">
+    <div class="aos" style="text-align:center">
+      <span class="sec-eyebrow">Fasilitas</span>
+      <h2 class="sec-title center">Fasilitas <span>Modern</span> & Lengkap</h2>
+    </div>
+    <div class="fac-grid">
+      <div class="fac-card aos"><div class="fac-ico">📚</div><div><h3>Perpustakaan Digital</h3><p>Koleksi 5.000+ buku dan akses e-library</p></div></div>
+      <div class="fac-card aos d1"><div class="fac-ico">💻</div><div><h3>Lab Komputer</h3><p>40 unit PC terbaru dengan internet cepat</p></div></div>
+      <div class="fac-card aos d2"><div class="fac-ico">🏟️</div><div><h3>Lapangan Olahraga</h3><p>Lapangan futsal, basket, dan area bermain</p></div></div>
+      <div class="fac-card aos d3"><div class="fac-ico">🎥</div><div><h3>Ruang Multimedia</h3><p>Proyektor HD dan sistem audio modern</p></div></div>
+      <div class="fac-card aos d1"><div class="fac-ico">🔬</div><div><h3>Lab Sains</h3><p>Peralatan eksperimen lengkap dan aman</p></div></div>
+      <div class="fac-card aos d2"><div class="fac-ico">🍽️</div><div><h3>Kantin Sehat</h3><p>Menu bergizi dengan standar kebersihan tinggi</p></div></div>
+      <div class="fac-card aos d3"><div class="fac-ico">🚌</div><div><h3>Antar-Jemput</h3><p>Armada bus sekolah ber-AC dan GPS</p></div></div>
+      <div class="fac-card aos d4"><div class="fac-ico">🩺</div><div><h3>UKS Lengkap</h3><p>Tenaga medis dan peralatan kesehatan siap</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EKSTRA ══ -->
+<section id="ekstra" class="bg-soft">
+  <div class="container">
+    <div class="aos" style="text-align:center; margin-bottom:16px">
+      <span class="sec-eyebrow">Kegiatan Siswa</span>
+      <h2 class="sec-title center" style="margin-bottom:12px">Ekstrakurikuler <span>Pilihan</span></h2>
+      <p style="color:var(--muted); margin-bottom: clamp(36px,5vw,60px);">Lebih dari 12 kegiatan untuk mengembangkan bakat dan minat setiap siswa</p>
+    </div>
+    <div class="ekstra-wrap">
+      <div class="ekstra-chip aos"><span>🎵</span> Tari & Musik Tradisional</div>
+      <div class="ekstra-chip aos d1"><span>⚽</span> Futsal & Basket</div>
+      <div class="ekstra-chip aos d2"><span>🎨</span> Klub Lukis & Kerajinan</div>
+      <div class="ekstra-chip aos d3"><span>🧠</span> Sains & Robotik</div>
+      <div class="ekstra-chip aos"><span>♟️</span> Catur</div>
+      <div class="ekstra-chip aos d1"><span>📖</span> Klub Membaca</div>
+      <div class="ekstra-chip aos d2"><span>🎭</span> Teater & Drama</div>
+      <div class="ekstra-chip aos d3"><span>🥋</span> Pencak Silat</div>
+      <div class="ekstra-chip aos"><span>🎤</span> Paduan Suara</div>
+      <div class="ekstra-chip aos d1"><span>🌱</span> Pramuka</div>
+      <div class="ekstra-chip aos d2"><span>🖥️</span> Coding Junior</div>
+      <div class="ekstra-chip aos d3"><span>📸</span> Fotografi</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALERI ══ -->
+<section id="galeri">
+  <div class="container">
+    <div class="aos" style="text-align:center">
+      <span class="sec-eyebrow">Galeri</span>
+      <h2 class="sec-title center">Galeri Aktivitas di <span>SDN 2 Pegundungan</span></h2>
+    </div>
+    <!-- GALERI: taruh foto di folder "galeri/" dalam repo (galeri/1.jpg, galeri/2.jpg, dst) -->
+    <div class="gallery-grid">
+      <div class="gallery-item aos"><img src="galeri/55643.jpg" alt="Kegiatan Belajar" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/school-study/600/450';"><div class="gallery-overlay"><span>Kegiatan Belajar</span></div></div>
+      <div class="gallery-item aos d1"><img src="galeri/55639 (1).jpg" alt="Kegiatan Sholat duha bersama" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/school-sport/600/450';"><div class="gallery-overlay"><span>Kegiatan sholat duha dan berdoa bersama<span></div></div>
+      <div class="gallery-item aos d2"><img src="galeri/3.jpg" alt="Seni & Kreativitas" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/school-art2/600/450';"><div class="gallery-overlay"><span>Seni & Kreativitas</span></div></div>
+      <div class="gallery-item aos d3"><img src="galeri/4.jpg" alt="Eksperimen Sains" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/school-science/600/450';"><div class="gallery-overlay"><span>Eksperimen Sains</span></div></div>
+      <div class="gallery-item aos d1"><img src="galeri/5.jpg" alt="Musik & Tari" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/school-music/600/450';"><div class="gallery-overlay"><span>Musik & Tari</span></div></div>
+      <div class="gallery-item aos d2"><img src="galeri/6.jpg" alt="Kebersamaan" loading="lazy" onerror="this.onerror=null;this.src='https://picsum.photos/seed/school-team/600/450';"><div class="gallery-overlay"><span>Kebersamaan</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONI ══ -->
+<section class="bg-soft">
+  <div class="container">
+    <div class="aos" style="text-align:center">
+      <span class="sec-eyebrow">Testimoni</span>
+      <h2 class="sec-title center">Apa Kata <span>Orang Tua</span></h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card aos">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">"Anak saya jadi lebih semangat belajar dan banyak berkembang di sini. Guru-gurunya sangat sabar dan penuh perhatian. Nilai akademisnya meningkat pesat!"</p>
+        <div class="testi-author"><div class="testi-avatar">R</div><div class="testi-info"><h4>Ibu Rina Kusuma</h4><p>Orang tua siswa Kelas 4</p></div></div>
+      </div>
+      <div class="testi-card aos d1">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testi-text">"Lingkungan sekolah sangat mendukung tumbuh kembang anak. Fasilitasnya lengkap dan program ekstrakurikulernya beragam. Sangat puas memilih SD Negeri 2 Pegundungan!"</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div class="testi-info"><h4>Bapak Andi Santoso</h4><p>Orang tua siswa Kelas 2</p></div></div>
+      </div>
+      <div class="testi-card aos d2">
+        <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p class="testi-text">"Karakter anak saya jauh lebih baik sejak bersekolah di sini. Nilai-nilai kebaikan benar-benar ditanamkan sejak dini. Terima kasih SD Negeri 2 Pegundungan!"</p>
+        <div class="testi-author"><div class="testi-avatar">S</div><div class="testi-info"><h4>Ibu Sari Dewi</h4><p>Orang tua siswa Kelas 6</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="kontak">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h2>SD Negeri 2 Pegundungan</h2>
+        <p>Sekolah Dasar Unggulan yang membentuk generasi unggul, cerdas, kreatif, dan berakhlak mulia sejak tahun 1984.</p>
+        <div class="socials">
+          <a href="#" class="soc-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigasi</h4>
+        <ul class="footer-links">
+          <li><a href="#beranda">Beranda</a></li>
+          <li><a href="#tentang">Tentang Kami</a></li>
+          <li><a href="#program">Program Unggulan</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#ekstra">Ekstrakurikuler</a></li>
+          <li><a href="#galeri">Galeri</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontak</h4>
+        <div class="contact-row"><i class="fas fa-map-marker-alt"></i><span>Jl. Raya Pendidikan No. 88,<br>Rawaseser, Jawa Tengah</span></div>
+        <div class="contact-row"><i class="fas fa-phone"></i><a href="tel:0271123456" style="color:inherit;">(0271) 123-456</a></div>
+        <div class="contact-row"><i class="fas fa-envelope"></i><a href="mailto:info@sdn2pegundungan.sch.id" style="color:inherit;">info@sdn2pegundungan.sch.id</a></div>
+        <div class="contact-row" style="margin-top:20px"><i class="fas fa-clock"></i><div><strong style="color:rgba(255,255,255,.85)">Jam Operasional</strong><br>Senin – Jumat: 07.00 – 14.00 WIB</div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><span id="copyright-egg" style="cursor:default;user-select:none;" title="">©</span> 2026 SD Negeri 2 Pegundungan. Semua hak dilindungi.</span>
+      <span><a href="#">Kebijakan Privasi</a> · <a href="#">Syarat &amp; Ketentuan</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ══ PASSWORD MODAL ══ -->
+<div id="pwd-overlay" role="dialog" aria-modal="true" aria-label="Admin Login">
+  <div id="pwd-box">
+    <div class="lock-icon"><i class="fas fa-lock"></i></div>
+    <h3>punya admin</h3>
+    <p>Admin masukkin pw</p>
+    <input id="pwd-input" type="password" placeholder="• • • • • • • •" autocomplete="off" spellcheck="false" maxlength="32">
+    <div id="pwd-error">&#9888; Password salah, skill issue bgt sih, Coba lagi.</div>
+    <div class="pwd-btns">
+      <button class="pwd-btn-cancel" id="pwd-cancel">nevermind</button>
+      <button class="pwd-btn-enter" id="pwd-enter">Masuk &rarr;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ ADMIN PANEL ══ -->
+<div id="admin-panel" role="dialog" aria-modal="true" aria-label="Admin Panel">
+  <div class="admin-topbar">
+    <div class="admin-topbar-left">
+      <span class="tbar-dot red"></span>
+      <span class="tbar-dot yellow"></span>
+      <span class="tbar-dot green"></span>
+      <span class="admin-topbar-title">SDN2PGD &mdash; TERMINAL PUNYA ADMIN v6.7.0</span>
+    </div>
+    <button class="admin-close-btn" id="admin-close">[ LOGOUT ]</button>
+  </div>
+
+  <div class="admin-ascii">
+<pre>
+    _______     ___    .___       ________   __________                                .___                                 
+ /   _____/  __| _/____   \_____  \  \______   \ ____   ____  __ __  ____    __| _/_ __  ____    _________    ____  
+ \_____  \  / __ |/    \   /  ____/   |     ___// __ \ / ___\|  |  \/    \  / __ |  |  \/    \  / ___\__  \  /    \ 
+ /        \/ /_/ |   |  \ /       \   |    |   \  ___// /_/  >  |  /   |  \/ /_/ |  |  /   |  \/ /_/  > __ \|   |  \
+/_______  /\____ |___|  / \_______ \  |____|    \___  >___  /|____/|___|  /\____ |____/|___|  /\___  (____  /___|  /
+        \/      \/    \/          \/                \/_____/            \/      \/          \//_____/     \/     \/ </pre>
+    <div>
+      <span class="version-tag">SD NEGERI 2 PEGUNDUNGAN &mdash; SISTEM ADMIN MILIK RAYZZ YANG GANTENG</span>
+      <span class="cursor"></span>
+    </div>
+  </div>
+
+  <div class="admin-body">
+
+    <!-- Widget: Statistik -->
+    <div class="admin-widget">
+      <h4><i class="fas fa-chart-bar"></i> STATISTIK SEKOLAH</h4>
+      <div class="admin-stats-row">
+        <div class="admin-stat-box"><div class="admin-stat-num">64</div><div class="admin-stat-lbl">Siswa Aktif</div></div>
+        <div class="admin-stat-box"><div class="admin-stat-num">9</div><div class="admin-stat-lbl">Tenaga Didik</div></div>
+        <div class="admin-stat-box"><div class="admin-stat-num">42</div><div class="admin-stat-lbl">Tahun Berdiri</div></div>
+        <div class="admin-stat-box"><div class="admin-stat-num">98%</div><div class="admin-stat-lbl">Kelulusan</div></div>
+      </div>
+    </div>
+
+    <!-- Widget: Kelola Pengumuman -->
+    <div class="admin-widget">
+      <h4><i class="fas fa-bullhorn"></i> KELOLA PENGUMUMAN</h4>
+      <input id="ann-input" class="admin-field" type="text" placeholder="Tulis pengumuman baru...">
+      <button class="admin-btn" id="ann-add-btn">+ TAMBAH PENGUMUMAN</button>
+      <div style="margin-top:14px;">
+        <div id="ann-list"><div class="ann-empty">&#8212; Belum ada pengumuman &#8212;</div></div>
+      </div>
+    </div>
+
+    <!-- Widget: Command Terminal -->
+    <!--
+      ╔══════════════════════════════════════════════════════╗
+      ║  COMMAND TERMINAL WIDGET                            ║
+      ║  Tambah command baru HANYA di bagian COMMANDS       ║
+      ║  di dalam script JS — tidak perlu ubah HTML ini.    ║
+      ╚══════════════════════════════════════════════════════╝
+    -->
+    <div class="admin-widget">
+      <h4><i class="fas fa-terminal"></i> COMMAND TERMINAL</h4>
+      <div class="cmd-terminal" id="cmd-output">
+      </div>
+      <div class="cmd-input-row">
+        <span class="cmd-input-prompt">admin@webOS:~$></span>
+        <input
+          id="cmd-input"
+          class="cmd-input-field"
+          type="text"
+          placeholder="ketik command..."
+          autocomplete="off"
+          spellcheck="false"
+        >
+      </div>
+    </div>
+
+    <!-- Widget: Activity Log -->
+    <div class="admin-widget">
+      <h4><i class="fas fa-list-alt"></i> ACTIVITY LOG</h4>
+      <div class="admin-log" id="admin-log"></div>
+    </div>
+
+    <!-- Widget: Sesi & Pengaturan -->
+    <div class="admin-widget">
+      <h4><i class="fas fa-cog"></i> SESI &amp; PENGATURAN</h4>
+      <div class="admin-session" style="margin-bottom:16px;">
+        <span>Session aktif:</span>
+        <span class="session-timer" id="session-timer">00:00</span>
+      </div>
+      <div class="admin-session" style="margin-bottom:20px;">
+        <span>Login sebagai:</span>
+        <span style="color:rgba(100,220,140,.8);">ADMINISTRATOR</span>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button class="admin-btn" id="btn-clear-cache">&#128465; Clear Cache</button>
+        <button class="admin-btn danger" id="admin-logout-btn">&#9167; Logout</button>
+      </div>
+    </div>
+
+  </div><!-- /admin-body -->
+</div><!-- /admin-panel -->
+
+<!-- ══ 404 ERROR OVERLAY ══════════════════════════════════
+     ► Untuk mengubah TAMPILAN halaman 404:
+       - ubah teks 404 = ganti dibagian div dibawah ini
+       -"404 ERROR OVERLAY" di CSS = ganti animasi dan warna
+       - ketik 404 diterminal = munculin gmbar 404
+       - Escape / tombol kembali = keluar 404
+════════════════════════════════════════════════════════ -->
+<div id="error-404-overlay" role="alertdialog" aria-label="Error 404">
+  <div class="err-glitch-wrap">
+    <div class="err-404-num">404</div>
+  </div>
+  <p class="err-label">Error: Page Not Found</p>
+  <h2 class="err-title">Halaman Tidak Ditemukan</h2>
+  <p class="err-desc">
+   Ada BUG sabar yh, ini lagi diperbaiki jadi jgn tanya &bull; atau kamu nyasar, inget tanya admin ini gmn ok &bull; Btw ini web gimana keren ga?
+  </p>
+  <p class="err-code-line">
+    HTTP 404 &bull; GET /10236587437 &bull; SDN2PGD Server
+  </p>
+  <div class="err-actions">
+    <button class="err-btn-home" id="err-btn-home">
+      <i class="fas fa-home"></i> KEMBALI KE BERANDA
+    </button>
+    <button class="err-btn-back" id="err-btn-back">
+      <i class="fas fa-arrow-left"></i> TUTUP
+    </button>
+  </div>
+</div>
+
+<!-- ══ SCRIPTS ══════════════════════════════════════════════════
+     STRUKTUR:
+     1. MAIN UI  — navbar, hamburger, scroll animations, observers
+     2. ADMIN    — easter egg, password modal, panel
+     3. COMMANDS — daftar command terminal (EDIT DI SINI)
+     4. TICKER   — close ticker bar
+═══════════════════════════════════════════════════════════════ -->
+<script>
+/* ════════════════════════════════════════
+   0. FIREBASE — REAL-TIME 404 BROADCAST
+   ──────────────────────────────────────
+   CARA SETUP (wajib diisi sebelum deploy):
+   1. Buka https://console.firebase.google.com
+   2. Buat project baru → klik "Add app" → pilih Web (</>)
+   3. Copy nilai dari firebaseConfig yang dikasih Firebase
+   4. Tempel di bawah (ganti yang bertanda GANTI_INI)
+   5. Di Firebase Console → Realtime Database → Create database
+      → pilih mode "Start in test mode" (bisa baca-tulis semua)
+════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  /* ► GANTI BAGIAN INI dengan config Firebase kamu ◄ */
+  const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyAxEPB-iGobR6iZxz2zDZjWO6BWQ220lJQ",
+  authDomain: "sdn2pegundugan.firebaseapp.com",
+  projectId: "sdn2pegundugan",
+  storageBucket: "sdn2pegundugan.firebasestorage.app",
+  messagingSenderId: "943943787037",
+  appId: "1:943943787037:web:d138d5d5fc1ef8c408dcf4",
+  measurementId: "G-8K7MYTTT5Z"
+  };
+
+  /* Cek apakah config sudah diisi */
+  const isConfigured = !Object.values(FIREBASE_CONFIG).some(v => v.includes('GANTI_INI'));
+
+  if (!isConfigured) {
+    console.warn('[SDN2PGD] Firebase belum dikonfigurasi. Fitur 404 broadcast dinonaktifkan.');
+    window._firebaseReady = false;
+  } else {
+    try {
+      const app = firebase.initializeApp(FIREBASE_CONFIG);
+      const db  = firebase.database(app);
+      const ref = db.ref('sdn2pgd/show404');
+
+      /* ── LISTEN: semua device memantau node ini ── */
+      ref.on('value', (snap) => {
+        const val = snap.val();
+        const overlay = document.getElementById('error-404-overlay');
+        if (!overlay) return;
+
+        if (val === true) {
+          overlay.classList.add('show');
+          // Update URL tanpa reload
+          if (location.hash !== '#404') history.pushState({ page404: true }, '', '#404');
+        } else {
+          overlay.classList.remove('show');
+          if (location.hash === '#404') history.replaceState(null, '', location.pathname);
+        }
+      });
+
+      /* ── EXPOSE: fungsi untuk set Firebase dari mana saja ── */
+      window._firebase404Show = () => ref.set(true);
+      window._firebase404Hide = () => ref.set(false);
+      window._firebaseReady   = true;
+
+      console.info('[SDN2PGD] Firebase terhubung. 404 broadcast aktif.');
+    } catch (err) {
+      console.error('[SDN2PGD] Firebase error:', err.message);
+      window._firebaseReady = false;
+    }
+  }
+
+})();
+
+/* ════════════════════════════════════════
+   1. MAIN UI
+════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  /* Nav: scrolled shadow */
+  const navbar = document.getElementById('navbar');
+  const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 30);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Hamburger / Mobile menu */
+  const hamburger  = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function toggleMenu(force) {
+    const open = (force !== undefined) ? force : !mobileMenu.classList.contains('open');
+    mobileMenu.classList.toggle('open', open);
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+  }
+  hamburger.addEventListener('click', () => toggleMenu());
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target) && !mobileMenu.contains(e.target)) toggleMenu(false);
+  });
+
+  /* Scroll animations (IntersectionObserver) */
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduced) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.aos, .aos-scale').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.aos, .aos-scale').forEach(el => el.classList.add('visible'));
+  }
+
+  /* Active nav link + section dots sync */
+  const sections   = document.querySelectorAll('section[id], footer[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+  const secDots    = document.querySelectorAll('.sec-dot');
+
+  const navObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navAnchors.forEach(a => a.classList.toggle('nav-active', a.getAttribute('href') === `#${id}`));
+        secDots.forEach(d  => d.classList.toggle('active', d.dataset.target === `#${id}`));
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => navObs.observe(s));
+
+  /* Progress bar + back-to-top */
+  const progressBar = document.getElementById('nav-progress');
+  const backToTop   = document.getElementById('back-to-top');
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const total    = document.documentElement.scrollHeight - window.innerHeight;
+    if (total > 0) progressBar.style.width = (scrolled / total * 100) + '%';
+    backToTop.classList.toggle('show', scrolled > 350);
+  }, { passive: true });
+
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* Section dots click */
+  secDots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const target = document.querySelector(dot.dataset.target);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* Ticker close */
+  const tickerBar   = document.getElementById('ticker-bar');
+  const tickerClose = document.getElementById('ticker-close');
+  if (tickerClose && tickerBar) {
+    tickerClose.addEventListener('click', () => {
+      tickerBar.style.transition = 'height .3s ease, opacity .3s ease';
+      tickerBar.style.overflow   = 'hidden';
+      tickerBar.style.opacity    = '0';
+      tickerBar.style.height     = '0';
+      setTimeout(() => tickerBar.remove(), 350);
+    });
+  }
+
+  /* ─────────────────────────────────────
+     404 OVERLAY — GLOBAL
+     Dipindah ke sini agar bisa diakses
+     dari mana saja tanpa butuh admin panel
+  ───────────────────────────────────── */
+  const overlay404 = document.getElementById('error-404-overlay');
+
+  window.show404 = function () {
+    overlay404.classList.add('show');
+    // Update history state agar tombol back browser bekerja
+    history.pushState({ page404: true }, '', '#404');
+  };
+
+  window.hide404 = function () {
+    overlay404.classList.remove('show');
+    if (location.hash === '#404') history.replaceState(null, '', location.pathname);
+    // Reset Firebase agar semua device ikut keluar 404
+    if (window._firebaseReady) window._firebase404Hide();
+  };
+
+  /* Tombol di halaman 404 */
+  document.getElementById('err-btn-home').addEventListener('click', () => {
+    overlay404.classList.remove('show');
+    history.replaceState(null, '', location.pathname);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window._firebaseReady) window._firebase404Hide();
+  });
+  document.getElementById('err-btn-back').addEventListener('click', () => {
+    overlay404.classList.remove('show');
+    if (location.hash === '#404') history.replaceState(null, '', location.pathname);
+    if (window._firebaseReady) window._firebase404Hide();
+  });
+
+  /* Escape key — hanya tutup 404, tidak menyentuh panel lain */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay404.classList.contains('show')) {
+      e.stopImmediatePropagation(); // cegah listener lain ikut terpicu
+      overlay404.classList.remove('show');
+      if (location.hash === '#404') history.replaceState(null, '', location.pathname);
+    }
+  });
+
+  /* URL hash #404 — bisa diakses langsung dari browser */
+  function checkHash() {
+    if (location.hash === '#404') {
+      overlay404.classList.add('show');
+    }
+  }
+  window.addEventListener('hashchange', checkHash);
+  window.addEventListener('popstate', (e) => {
+    if (e.state && e.state.page404) {
+      overlay404.classList.add('show');
+    } else {
+      overlay404.classList.remove('show');
+    }
+  });
+  checkHash(); // cek saat halaman pertama dibuka
+
+})();
+
+
+/* ════════════════════════════════════════
+   2. ADMIN PANEL
+════════════════════════════════════════ */
+(function () {
+  'use strict';
+
+  /* ─────────────────────────────────────
+     PW KHUSUS
+     ganti disini min pw
+  ───────────────────────────────────── */
+  const ADMIN_PASSWORD = 'Azxka_pw'; // ← ganti password di sini
+  const EGG_CLICKS     = 2;                // ← jumlah klik © untuk buka modal
+  const EGG_WINDOW_MS  = 4000;             // ← jendela waktu klik (ms)
+
+  /* ─────────────────────────────────────
+     ELEMEN DOM
+  ───────────────────────────────────── */
+  const pwdOverlay     = document.getElementById('pwd-overlay');
+  const pwdBox         = document.getElementById('pwd-box');
+  const pwdInput       = document.getElementById('pwd-input');
+  const pwdError       = document.getElementById('pwd-error');
+  const pwdCancel      = document.getElementById('pwd-cancel');
+  const pwdEnter       = document.getElementById('pwd-enter');
+  const adminPanel     = document.getElementById('admin-panel');
+  const adminClose     = document.getElementById('admin-close');
+  const adminLogoutBtn = document.getElementById('admin-logout-btn');
+  const sessionTimer   = document.getElementById('session-timer');
+  const annInput       = document.getElementById('ann-input');
+  const annAddBtn      = document.getElementById('ann-add-btn');
+  const annList        = document.getElementById('ann-list');
+  const adminLogEl     = document.getElementById('admin-log');
+  const copyrightEgg   = document.getElementById('copyright-egg');
+  const btnClearCache  = document.getElementById('btn-clear-cache');
+
+  let sessionStart    = null;
+  let sessionInterval = null;
+  let announcements   = [];
+
+  /* ─────────────────────────────────────
+     EASTER EGG: klik © sebanyak EGG_CLICKS kali
+  ───────────────────────────────────── */
+  let eggClicks = 0;
+  let eggTimer  = null;
+
+  if (copyrightEgg) {
+    copyrightEgg.addEventListener('click', () => {
+      eggClicks++;
+      clearTimeout(eggTimer);
+      eggTimer = setTimeout(() => { eggClicks = 0; }, EGG_WINDOW_MS);
+      if (eggClicks >= EGG_CLICKS) {
+        eggClicks = 0;
+        clearTimeout(eggTimer);
+        openPwdModal();
+      }
+    });
+  }
+
+  /* ─────────────────────────────────────
+     MODAL PASSWORD
+  ───────────────────────────────────── */
+  function openPwdModal() {
+    pwdInput.value = '';
+    pwdError.classList.remove('show');
+    pwdOverlay.classList.add('show');
+    setTimeout(() => pwdInput.focus(), 320);
+  }
+
+  function closePwdModal() {
+    pwdOverlay.classList.remove('show');
+    pwdInput.value = '';
+    pwdError.classList.remove('show');
+  }
+
+  pwdCancel.addEventListener('click', closePwdModal);
+  pwdOverlay.addEventListener('click', (e) => { if (e.target === pwdOverlay) closePwdModal(); });
+
+  function submitPassword() {
+    const val = pwdInput.value.trim();
+    if (val === ADMIN_PASSWORD) {
+      closePwdModal();
+      openAdminPanel();
+    } else {
+      pwdError.classList.add('show');
+      pwdBox.classList.add('shake');
+      pwdInput.value = '';
+      setTimeout(() => pwdBox.classList.remove('shake'), 500);
+    }
+  }
+
+  pwdEnter.addEventListener('click', submitPassword);
+  pwdInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter')  submitPassword();
+    if (e.key === 'Escape') closePwdModal();
+    if (pwdError.classList.contains('show')) pwdError.classList.remove('show');
+  });
+
+  /* ─────────────────────────────────────
+     ADMIN PANEL: BUKA & TUTUP
+  ───────────────────────────────────── */
+  function openAdminPanel() {
+    adminPanel.classList.add('show');
+    document.body.style.overflow = 'hidden';
+    sessionStart = Date.now();
+    startSessionTimer();
+    adminLog('SYSTEM', 'Login berhasil. ADMIN DATANG!!!!, min inget minum min.', 'ok');
+    adminLog('INFO',   'Session dimulai.', 'ok');
+    adminLog('WARN',   'DIAM ini hanya punya admin.', 'warn');
+    cmdPrint('Ketik "help" untuk... umm you know.', 'info');
+  }
+
+  function closeAdminPanel() {
+    adminPanel.classList.remove('show');
+    document.body.style.overflow = '';
+    clearInterval(sessionInterval);
+    sessionStart = null;
+  }
+
+  adminClose.addEventListener('click', closeAdminPanel);
+  adminLogoutBtn.addEventListener('click', () => {
+    adminLog('SYSTEM', 'Logout. Session diakhiri.', 'warn');
+    setTimeout(closeAdminPanel, 400);
+  });
+
+  /* Escape key menutup panel — skip jika 404 sedang tampil */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape'
+        && adminPanel.classList.contains('show')
+        && !document.getElementById('error-404-overlay').classList.contains('show')) {
+      closeAdminPanel();
+    }
+  });
+
+  /* ─────────────────────────────────────
+     SESSION TIMER
+  ───────────────────────────────────── */
+  function startSessionTimer() {
+    clearInterval(sessionInterval);
+    sessionInterval = setInterval(() => {
+      if (!sessionStart) return;
+      const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+      const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
+      const ss = String(elapsed % 60).padStart(2, '0');
+      sessionTimer.textContent = mm + ':' + ss;
+    }, 1000);
+  }
+
+  /* ─────────────────────────────────────
+     ACTIVITY LOG
+  ───────────────────────────────────── */
+  window.adminLog = function (type, msg, cls) {
+    const now  = new Date();
+    const time = [now.getHours(), now.getMinutes(), now.getSeconds()]
+                  .map(n => String(n).padStart(2,'0')).join(':');
+    const line = document.createElement('div');
+    line.className = 'log-line ' + (cls || 'ok');
+    line.innerHTML =
+      `<span class="log-time">[${time}]</span>` +
+      `<span class="log-msg">[${type}] ${msg}</span>`;
+    adminLogEl.appendChild(line);
+    adminLogEl.scrollTop = adminLogEl.scrollHeight;
+  };
+
+  /* ─────────────────────────────────────
+     PENGUMUMAN → sync ke ticker
+  ───────────────────────────────────── */
+  function syncTickerFromAnnouncements() {
+    const track = document.getElementById('ticker-track');
+    if (!track) return;
+
+    if (announcements.length === 0) {
+      // Reset ke konten default jika semua pengumuman dihapus
+      track.innerHTML = `
+        <span class="ticker-item">uji coba 1</span>
+        <span class="ticker-item">woi admin ini bugnya difix!!!</span>
+        <span class="ticker-item">mana foto sekolah yang kau janjikan itu hah??!!!</span>
+        <span class="ticker-item">Hidup jack doey</span>
+        <span class="ticker-item">well,well,well bug lagi</span>
+        <span class="ticker-item">uji coba 1</span>
+        <span class="ticker-item">woi admin ini bugnya difix!!!</span>
+        <span class="ticker-item">mana foto sekolah yang kau janjikan itu hah??!!!</span>
+        <span class="ticker-item">Hidup jack doey</span>
+        <span class="ticker-item">well,well,well bug lagi</span>
+      `;
+      return;
+    }
+
+    // Buat item dari daftar pengumuman (duplikat untuk loop mulus)
+    const items = announcements.map(t => `<span class="ticker-item">${t}</span>`).join('');
+    track.innerHTML = items + items; // duplikat = seamless scroll
+  }
+
+  function renderAnnouncements() {
+    if (announcements.length === 0) {
+      annList.innerHTML = '<div class="ann-empty">&#8212; Belum ada pengumuman &#8212;</div>';
+      syncTickerFromAnnouncements();
+      return;
+    }
+    annList.innerHTML = '';
+    announcements.forEach((text, i) => {
+      const item = document.createElement('div');
+      item.className = 'ann-item';
+      item.innerHTML =
+        `<span class="ann-item-text">${text}</span>` +
+        `<button class="ann-item-del" data-i="${i}" title="Hapus">✕</button>`;
+      annList.appendChild(item);
+    });
+    annList.querySelectorAll('.ann-item-del').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx     = parseInt(btn.dataset.i);
+        const removed = announcements.splice(idx, 1)[0];
+        renderAnnouncements();
+        adminLog('INFO', `Pengumuman dihapus: "${removed.substring(0,30)}..."`, 'warn');
+      });
+    });
+    syncTickerFromAnnouncements();
+  }
+
+  annAddBtn.addEventListener('click', () => {
+    const val = annInput.value.trim();
+    if (!val) return;
+    announcements.push(val);
+    annInput.value = '';
+    renderAnnouncements();
+    adminLog('INFO', `Pengumuman ditambahkan: "${val.substring(0,30)}"`, 'ok');
+  });
+  annInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') annAddBtn.click(); });
+
+  /* Clear cache button */
+  btnClearCache.addEventListener('click', () => {
+    adminLog('INFO', 'Cache berhasil dibersihkan.', 'ok');
+    if (document.getElementById('cmd-output')) cmdPrint('Cache cleared.', 'ok');
+  });
+
+  renderAnnouncements();
+
+  /* ─────────────────────────────────────
+     COMMAND TERMINAL — Output helper
+  ───────────────────────────────────── */
+  const cmdOutput = document.getElementById('cmd-output');
+
+  function cmdPrint(text, type) {
+    /* type: 'ok' | 'err' | 'info' | '' (default) */
+    const line = document.createElement('div');
+    line.className = 'cmd-line';
+    line.innerHTML = `<span class="cmd-output ${type || ''}">${text}</span>`;
+    cmdOutput.appendChild(line);
+    cmdOutput.scrollTop = cmdOutput.scrollHeight;
+  }
+
+  function cmdEcho(input, output, type) {
+    /* Tampilkan baris perintah lalu output-nya */
+    const lineIn = document.createElement('div');
+    lineIn.className = 'cmd-line';
+    lineIn.innerHTML =
+      `<span class="cmd-prompt">$</span>` +
+      `<span class="cmd-output">${input}</span>`;
+    cmdOutput.appendChild(lineIn);
+    if (output !== undefined) cmdPrint(output, type);
+    cmdOutput.scrollTop = cmdOutput.scrollHeight;
+  }
+
+  /* Expose ke global agar command bisa pakai */
+  window._cmd = { print: cmdPrint, echo: cmdEcho, adminLog: window.adminLog };
+
+  /* ─────────────────────────────────────
+     INPUT TERMINAL
+  ───────────────────────────────────── */
+  const cmdInput   = document.getElementById('cmd-input');
+  let   cmdHistory = [];
+  let   historyIdx = -1;
+
+  cmdInput.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (historyIdx < cmdHistory.length - 1) historyIdx++;
+      cmdInput.value = cmdHistory[historyIdx] || '';
+      return;
+    }
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (historyIdx > 0) historyIdx--;
+      else { historyIdx = -1; cmdInput.value = ''; return; }
+      cmdInput.value = cmdHistory[historyIdx] || '';
+      return;
+    }
+    if (e.key !== 'Enter') return;
+
+    const raw = cmdInput.value.trim();
+    cmdInput.value = '';
+    historyIdx = -1;
+    if (!raw) return;
+
+    cmdHistory.unshift(raw);
+    if (cmdHistory.length > 50) cmdHistory.pop();
+
+    /* Jalankan command */
+    runCommand(raw);
+  });
+
+  /* ─────────────────────────────────────
+     COMMAND RUNNER
+  ───────────────────────────────────── */
+  function runCommand(raw) {
+    const [cmd, ...args] = raw.toLowerCase().trim().split(/\s+/);
+
+    if (COMMANDS[cmd]) {
+      cmdEcho(raw);
+      try {
+        COMMANDS[cmd](args, raw);
+        window.adminLog('CMD', `Dijalankan: ${raw}`, 'ok');
+      } catch (err) {
+        cmdPrint(`Error: ${err.message}`, 'err');
+        window.adminLog('CMD', `Error saat menjalankan "${raw}": ${err.message}`, 'err');
+      }
+    } else {
+      cmdEcho(raw, `Command tidak dikenal: "${cmd}". Ketik "help" untuk ya help apa lagi.`, 'err');
+      window.adminLog('CMD', `Command tidak dikenal: "${raw}"`, 'warn');
+    }
+  }
+
+  /* Expose runCommand agar bisa dipanggil dari luar jika perlu */
+  window.runAdminCommand = runCommand;
+
+  /* ─────────────────────────────────────
+     404 OVERLAY — sudah dipindah ke MAIN UI
+     Gunakan window.show404() / window.hide404()
+     dari mana saja, termasuk di sini.
+  ───────────────────────────────────── */
+
+/*══════════════════════════════════════════════════════════════
+  3. COMMANDS — DAFTAR COMMAND TERMINAL
+  ──────────────────────────────────────────────────────────────
+  FORMAT:
+    'nama-command': function(args, rawInput) { ... }
+
+  CARA MENAMBAH COMMAND BARU:
+    Cukup tambah baris baru di dalam objek COMMANDS di bawah ini.
+    Tidak perlu mengubah kode lain sama sekali.
+
+  CARA MENGHAPUS COMMAND:
+    Hapus baris yang tidak diinginkan dari objek COMMANDS.
+
+  FUNGSI YANG TERSEDIA DI DALAM HANDLER:
+    _cmd.print(teks, type)         — tampilkan baris output (type: 'ok'|'err'|'info'|'')
+    _cmd.echo(input, output, type) — tampilkan baris input + output sekaligus
+    _cmd.adminLog(type, msg, cls)  — tulis ke activity log
+    show404()                      — tampilkan halaman 404
+    hide404()                      — sembunyikan halaman 404
+══════════════════════════════════════════════════════════════*/
+  const COMMANDS = {
+
+    /* ► help — tampilkan semua command */
+    'help': function () {
+      _cmd.print('Command yang tersedia:', 'info');
+      Object.keys(COMMANDS).forEach(k => {
+        const desc = COMMAND_DESCRIPTIONS[k] || '—';
+        _cmd.print(`  ${k.padEnd(16)} ${desc}`);
+      });
+    },
+
+    /* ► 404 — tampilkan halaman error 404 ke SEMUA device */
+    '404': function () {
+      if (window._firebaseReady) {
+        _cmd.print('Mengirim 404 ke semua device...', 'warn');
+        window._firebase404Show(); // Firebase listener otomatis trigger show404() di semua device
+        window.adminLog('SYSTEM', 'Broadcast 404 dikirim ke semua pengunjung.', 'warn');
+      } else {
+        _cmd.print('Firebase belum dikonfigurasi — 404 hanya tampil di device ini.', 'warn');
+        show404();
+      }
+    },
+
+    /* ► clear — bersihkan output terminal */
+    'clear': function () {
+      cmdOutput.innerHTML = '';
+      _cmd.print('Terminal dibersihkan.', 'ok');
+    },
+
+    /* ► normal — kembalikan semua device dari 404 ke halaman normal */
+    'normal': function () {
+      if (window._firebaseReady) {
+        window._firebase404Hide();
+        _cmd.print('Semua device dikembalikan ke halaman normal.', 'ok');
+        window.adminLog('SYSTEM', 'Broadcast NORMAL dikirim ke semua pengunjung.', 'ok');
+      } else {
+        hide404();
+        _cmd.print('Firebase belum dikonfigurasi — hanya device ini yang dikembalikan.', 'warn');
+      }
+    },
+
+    /* ► status — tampilkan info singkat sekolah */
+    'status': function () {
+      _cmd.print('═══ STATUS SISTEM ═══', 'info');
+      _cmd.print(`Nama    : ADMIN SD Negeri 2 Pegundungan`);
+      _cmd.print(`Server  : ONLINE ✓`, 'ok');
+      _cmd.print(`Siswa   : 64 aktif`);
+      _cmd.print(`Pengumuman live : ${announcements.length}`);
+    },
+
+    /* ► date — tampilkan tanggal & waktu saat ini */
+    'date': function () {
+      _cmd.print(new Date().toLocaleString('id-ID', { dateStyle:'full', timeStyle:'medium' }), 'ok');
+    },
+
+    /* ► ann — lihat daftar pengumuman saat ini */
+    'ann': function () {
+      if (announcements.length === 0) {
+        _cmd.print('Belum ada pengumuman.', 'info');
+        return;
+      }
+      _cmd.print(`${announcements.length} pengumuman aktif:`, 'info');
+      announcements.forEach((t, i) => _cmd.print(`  [${i + 1}] ${t}`));
+    },
+
+    /* ► add <teks> — tambah pengumuman via terminal */
+    'add': function (args) {
+      const text = args.join(' ').trim();
+      if (!text) { _cmd.print('Penggunaan: add <teks pengumuman>', 'err'); return; }
+      announcements.push(text);
+      renderAnnouncements();
+      _cmd.print(`Pengumuman ditambahkan: "${text}"`, 'ok');
+    },
+
+    /* ► logout — keluar dari panel admin */
+    'logout': function () {
+      _cmd.print('Logging out...', 'warn');
+      window.adminLog('SYSTEM', 'Logout via terminal command.', 'warn');
+      setTimeout(closeAdminPanel, 600);
+    },
+
+    /* ► echo <teks> — cetak teks ke terminal */
+    'echo': function (args) {
+      _cmd.print(args.join(' ') || '', 'ok');
+    },
+
+    /* ► whoami — tampilkan info user */
+    'whoami': function () {
+      _cmd.print('ADMINISTRATOR @ SDN2PGD', 'ok');
+    },
+
+    /* ► session — info session saat ini */
+    'session': function () {
+      if (!sessionStart) { _cmd.print('Session tidak aktif.', 'err'); return; }
+      const elapsed = Math.floor((Date.now() - sessionStart) / 1000);
+      const mm = String(Math.floor(elapsed / 60)).padStart(2,'0');
+      const ss = String(elapsed % 60).padStart(2,'0');
+      _cmd.print(`Session aktif selama: ${mm}:${ss}`, 'ok');
+    },
+
+    /* ────────────────────────────────────────────
+       ► TAMBAH COMMAND KUSTOM KAMU DI SINI ◄
+       Contoh:
+       'halo': function() { _cmd.print('Halo dunia!', 'ok'); },
+    ──────────────────────────────────────────── */
+  
+  };
+
+  /* Deskripsi singkat untuk "help" — sesuaikan jika tambah command baru */
+  const COMMAND_DESCRIPTIONS = {
+    'help'    : 'tampilkan daftar command ini',
+    '404'     : 'tampilkan halaman error 404',
+    'clear'   : 'bersihkan output terminal',
+    'status'  : 'info status sistem sekolah',
+    'date'    : 'tampilkan tanggal & waktu sekarang',
+    'ann'     : 'lihat daftar pengumuman aktif',
+    'add'     : 'tambah pengumuman  →  add <teks>',
+    'normal'  : 'kembalikan semua device dari 404 ke normal',
+    'logout'  : 'keluar dari panel admin',
+    'echo'    : 'cetak teks  →  echo <teks>',
+    'whoami'  : 'tampilkan info user aktif',
+    'session' : 'info durasi session aktif',
+  };
+
+})(); /* ═ end admin IIFE ═ */
+</script>
+</body>
+</html>
